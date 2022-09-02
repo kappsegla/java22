@@ -1,11 +1,12 @@
 package se.iths.twentytwo.exercises;
 
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 public class Chapter2 {
 
     public static void main(String[] args) {
-        task3();
+        task4();
     }
 
     public static void task3() {
@@ -23,6 +24,17 @@ public class Chapter2 {
     }
 
     public static void task4() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number == 100) {
+            System.out.println("The number is exactly 100");
+        } else if (number < 100) {
+            System.out.println("The number is lesser than 100");
+        } else {
+            System.out.println("The number is greater than 100");
+        }
 
     }
 
