@@ -110,7 +110,8 @@ public class Chapter2 {
             nGuesses++;
             if (guess == answer)
                 break;
-            //Using string format and replacing if/else with ternary operator, https://www.baeldung.com/java-ternary-operator
+            //Using string format and replacing if/else with ternary operator
+            //https://www.baeldung.com/java-ternary-operator
             System.out.format("Fel gissat, försök igen!%nTalet är %s än %d!%n", guess < answer ? "högre" : "lägre", guess);
         }
         System.out.format("Rätt gissat, det var %s!%nAntal gissningar var: %s", answer, nGuesses);
