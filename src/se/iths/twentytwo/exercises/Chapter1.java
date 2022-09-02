@@ -1,10 +1,11 @@
 package se.iths.twentytwo.exercises;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Chapter1 {
     public static void main(String[] args) {
-        task5();
+        task7();
     }
 
     public static void task2() {
@@ -53,10 +54,29 @@ public class Chapter1 {
     }
 
     public static void task6() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("mata in 2 tal");
+        int x = s.nextInt(), y = s.nextInt();
 
+        double aver = (double) (x + y) / 2;
+//        double aver2 = (x + y) / 2.0;
+        System.out.println(aver);
     }
 
     public static void task7() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hur mycket pengar har du på kontot?");
+        double sum = sc.nextDouble();
+        System.out.println("Hur många % ränta vill du ha?");
+        double rent = sc.nextDouble();
 
+        double saldo = sum + ((sum * rent) / 100);
+
+        System.out.println(saldo);
+
+//        String s = sc.next();
+//        BigDecimal balance = new BigDecimal(s);
+//        BigDecimal interest = new BigDecimal("0.02");
+//        System.out.println(balance.multiply(interest));
     }
 }
