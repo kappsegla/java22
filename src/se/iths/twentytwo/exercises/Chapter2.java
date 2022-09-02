@@ -8,7 +8,7 @@ import java.util.Random;
 public class Chapter2 {
 
     public static void main(String[] args) {
-        task10();
+        task11();
     }
 
     public static void task3() {
@@ -175,6 +175,18 @@ public class Chapter2 {
     }
 
     public static void task11() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Please enter a number 3 or more: ");
+        long testNumber = scanner.nextLong();
+        while (true) {
+            if (testNumber < 3) {
+                break;
+            } else if (testNumber % 2 == 0)
+                testNumber /= 2;
+            else
+                testNumber = testNumber * 3 + 1;
+            System.out.println(testNumber);
+        }
     }
 }
