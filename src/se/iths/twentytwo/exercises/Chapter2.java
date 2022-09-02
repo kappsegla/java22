@@ -8,7 +8,7 @@ import java.util.Random;
 public class Chapter2 {
 
     public static void main(String[] args) {
-        task6();
+        task8();
     }
 
     public static void task3() {
@@ -73,37 +73,80 @@ public class Chapter2 {
         }
         System.out.println("Rätt gissat, det var " + answer + "!");
         System.out.println("Antal gissningar var: " + nGuesses);
+    }
 
+    public static void task6alt() {
+        Scanner sc = new Scanner(System.in);
+        Random randomNumber = new Random();
+        int secretNumber = randomNumber.nextInt(-1, 101);
 
-//    Random randomNumber = new Random();
-//    int secretNumber = randomNumber.nextInt(-1, 101);
-//
-//        System.out.println("Gissa vilket tal jag tänker på");
-//
-//        while(true)
-//
-//    {
-//        int input = sc.nextInt();
-//
-//        if (input < secretNumber) {
-//            System.out.println("För lågt, försök igen");
-//            continue;
-//        } else if (input > secretNumber) {
-//            System.out.println("För högt, försök igen");
-//            continue;
-//
-//        } else System.out.println("Rätt svar");
-//        break;
-//    }
+        System.out.println("Gissa vilket tal jag tänker på");
+
+        while (true) {
+            int input = sc.nextInt();
+
+            if (input < secretNumber) {
+                System.out.println("För lågt, försök igen");
+                continue;
+            } else if (input > secretNumber) {
+                System.out.println("För högt, försök igen");
+                continue;
+
+            } else System.out.println("Rätt svar");
+            break;
+        }
+    }
+
+    public static void task6minimal() {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+        System.out.println("Gissa ett tal från ett till och med 10!");
+
+        int answer = rand.nextInt(1, 11);
+        int nGuesses = 0;
+
+        while (true) {
+            int guess = sc.nextInt();
+            nGuesses++;
+            if (guess == answer)
+                break;
+            //Using string format and replacing if/else with ternary operator, https://www.baeldung.com/java-ternary-operator
+            System.out.format("Fel gissat, försök igen!%nTalet är %s än %d!%n", guess < answer ? "högre" : "lägre", guess);
+        }
+        System.out.format("Rätt gissat, det var %s!%nAntal gissningar var: %s", answer, nGuesses);
     }
 
     public static void task7() {
-
+        for (int i = 1; i <= 16; i++) {
+            System.out.println(i);
+        }
+        int number = 1;
+        while (number < 17) {
+            System.out.println(number);
+            number++;
+        }
     }
 
     public static void task8() {
-        //pax
-        // Julia paxaren
+        for (int i = 20; i >= 2; i--) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
+        for (int i = 20; i >= 2; i--) {
+            if (isEven(i))
+                System.out.println(i);
+        }
+        for (int i = 20; i > 1; i--) {
+            System.out.println(i--);
+        }
+        for (int i = 20; i >= 2; i -= 2) {
+            System.out.println(i);
+        }
+    }
+
+    private static boolean isEven(int i) {
+        return i % 2 == 0;
     }
 
     public static void task9() {
