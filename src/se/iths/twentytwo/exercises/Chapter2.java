@@ -8,7 +8,7 @@ import java.util.Random;
 public class Chapter2 {
 
     public static void main(String[] args) {
-        task11();
+        task12();
     }
 
     public static void task3() {
@@ -187,6 +187,18 @@ public class Chapter2 {
             else
                 testNumber = testNumber * 3 + 1;
             System.out.println(testNumber);
+        }
+    }
+
+    public static void task12() {
+        for (int y = 0; y < 5; y++) {
+            for (int x = 0; x < 5; x++) {
+                if (x == y)
+                    System.out.print("#");
+                else
+                    System.out.print(".");
+            }
+            System.out.println("");
         }
     }
 }
