@@ -8,7 +8,7 @@ import java.util.Random;
 public class Chapter2 {
 
     public static void main(String[] args) {
-        task8();
+        task10();
     }
 
     public static void task3() {
@@ -151,10 +151,27 @@ public class Chapter2 {
 
     public static void task9() {
 
+        for (int i = 65536; i > 1; i /= 2) {
+            System.out.println(i);
+        }
+        for (int i = 65536; i > 1; i >>= 1) {
+            System.out.println(i);
+        }
     }
 
     public static void task10() {
+        Scanner scanner = new Scanner(System.in);
+        String completeInput = "";
 
+        while (true) {
+            System.out.println("Skriv in ett ord");
+            String input = scanner.nextLine();
+            if (input.isEmpty() || input.equals("."))
+                break;
+
+            completeInput = completeInput + input + " ";
+            System.out.println(completeInput);
+        }
     }
 
     public static void task11() {
