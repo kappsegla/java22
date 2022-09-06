@@ -17,6 +17,13 @@ public class Methods2 {
 
     }
 
+    public int recurciveSum(int lowerbound, int upperbound){
+        if( lowerbound >= upperbound )
+            return 0;
+        return lowerbound + recurciveSum(lowerbound +1 , upperbound);
+    }
+
+
     private static void recurse() {
         System.out.println("Hej");
         //recurse();
