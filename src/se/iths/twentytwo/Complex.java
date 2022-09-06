@@ -3,9 +3,8 @@ package se.iths.twentytwo;
 public class Complex {
     public static void main(String[] args) {
 
-        int i = 0;
-
         Box box = new Box();
+
         box.width = 10;
         System.out.println(box.width);
 
