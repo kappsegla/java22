@@ -13,14 +13,14 @@ public class Methods2 {
         test();
         int temp = createdMethod(1);
 
-        recurse();
+        System.out.println(recursiveSum(1, 10));
 
     }
 
-    public int recurciveSum(int lowerbound, int upperbound){
+    public static int recursiveSum(int lowerbound, int upperbound){
         if( lowerbound >= upperbound )
             return 0;
-        return lowerbound + recurciveSum(lowerbound +1 , upperbound);
+        return lowerbound + recursiveSum(lowerbound + 1 , upperbound);
     }
 
 
