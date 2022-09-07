@@ -5,6 +5,11 @@ public class Box {
     int width;
     int length;
 
+    //Constructor
+    public Box(){
+
+    }
+
     public void increaseBoxSize() {
         height = height * 2;
         width = width * 2;
