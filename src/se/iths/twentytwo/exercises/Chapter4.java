@@ -2,6 +2,7 @@ package se.iths.twentytwo.exercises;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Chapter4 {
@@ -10,7 +11,7 @@ public class Chapter4 {
 
 
     public static void main(String[] args) {
-        task3();
+        task4();
     }
 
     private static void task1() {
@@ -53,8 +54,24 @@ public class Chapter4 {
                 oddCounter++;
         }
         System.out.println(Arrays.toString(arr));
-        System.out.println("Min: " + min);
+        System.out.println("Mån: " + min);
         System.out.println("Max: " + max);
         System.out.println("Antal udda tal:" + oddCounter);
     }
+
+    public static void task4() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Hur lång ska arrayen vara?");
+        int[] num = new int[sc.nextInt()];
+        for (int i = 0; i < num.length; i++) {
+            num[i] = (int) (Math.random() * 100);
+            System.out.println(num[i]);
+        }
+        int sum = 0;
+        for (int i = 0; i < num.length; i++) {
+            sum += num[i];
+        }
+        System.out.printf("Medelvärdet är %.2f", (double) sum / num.length);
+    }
+
 }
