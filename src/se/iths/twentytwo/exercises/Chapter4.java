@@ -22,9 +22,9 @@ public class Chapter4 {
 //        P4_7rektanglar.H();
 //        P4_7rektanglar.I();
 //        P4_7rektanglar.J();
-        P4_7rektanglar.K();
+//        P4_7rektanglar.K();
 //        P4_7rektanglar.task4_7_j();
-
+        P4_7rektanglar.task9();
 
     }
 
@@ -283,5 +283,16 @@ class P4_7rektanglar {
         }
         task4_7_j();
         // Detta är Julia
+    }
+
+    public static void task9() {
+        int[][] array2D = new int[][]{{1, 2}, {3, 4}, {5, 6}, {7, 8}};
+
+        int[][] array2 = new int[4][];
+        // array2[0] = new int[2];
+        array2[0][0] = 1;
+        array2[0][1] = 2;
+
+
     }
 }
