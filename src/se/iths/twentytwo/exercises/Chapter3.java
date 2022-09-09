@@ -21,9 +21,6 @@ public class Chapter3 {
             } catch (Exception e) {
                 System.out.println("Error");
             }
-
         }
-
     }
-
 }
