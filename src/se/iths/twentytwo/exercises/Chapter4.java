@@ -126,6 +126,8 @@ public class Chapter4 {
 
 
     }
+
+
 }
 
 class P4_7rektanglar {
