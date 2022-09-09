@@ -24,7 +24,8 @@ public class Chapter4 {
 //        P4_7rektanglar.J();
 //        P4_7rektanglar.K();
 //        P4_7rektanglar.task4_7_j();
-        P4_7rektanglar.task9();
+//        P4_7rektanglar.task9();
+        task8();
 
     }
 
@@ -35,7 +36,6 @@ public class Chapter4 {
         }
         System.out.println(Arrays.toString(colors));
     }
-
 
     private static void task2() {
         int[] arr = {2, 3, 5, 8, 13, 21, 34};
@@ -88,7 +88,44 @@ public class Chapter4 {
         System.out.printf("Medelvärdet är %.2f", (double) sum / num.length);
     }
 
+    public static void task8() {
 
+        int[] intArray = new int[9];
+
+        for (int i = 0; i < intArray.length; i++) {
+            intArray[i] = (int) (Math.random() * 20) + 1;
+        }
+//        int[] intArray = {1,2,3,4,5,6,7,8,9};
+
+        System.out.println(Arrays.toString(intArray));
+
+        boolean isSwaped = true;
+        while (isSwaped) {
+            isSwaped = false;
+            for (int i = 0; i < intArray.length - 1; i++) {
+                if (intArray[i] > intArray[i + 1]) {
+                    int temp = intArray[i + 1];
+                    intArray[i + 1] = intArray[i];
+                    intArray[i] = temp;
+                    isSwaped = true;
+                }
+            }
+            System.out.println(Arrays.toString(intArray));
+        }
+//        for (int i = 0; i < intArray.length; i++) {
+//            for (int j = i + 1; j < intArray.length; j++) {
+//                if (intArray[i] > intArray[j]) {
+//                    int temp = intArray[j];
+//                    intArray[j] = intArray[i];
+//                    intArray[i] = temp;
+//                }
+//            }
+//
+//            System.out.println(Arrays.toString(intArray));
+//        }
+
+
+    }
 }
 
 class P4_7rektanglar {
