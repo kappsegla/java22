@@ -1,6 +1,8 @@
 package se.iths.twentytwo.exercises;
 
-import java.util.Arrays;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -155,6 +157,18 @@ public class Chapter5 {
             leap = false;
 
         return leap;
+
+    }
+
+    public static void task5_9(String firstDateInput, String secondDateInput) throws ParseException {
+        if (firstDateInput.length() > 10 || secondDateInput.length() > 10)
+            System.out.println("Please enter as “2017-08-30”, “2017-09-02”");
+
+        LocalDate firstDate = LocalDate.parse(firstDateInput);
+        LocalDate secondDate = LocalDate.parse(secondDateInput);
+
+
+        System.out.println((int) ChronoUnit.DAYS.between(firstDate, secondDate));
 
     }
 
