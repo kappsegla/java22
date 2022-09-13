@@ -40,6 +40,9 @@ public class Circle {
             copyOfArray[i] = array[i];
         }
 
+        //Fast shallow copy of arrays.
+        int[] copy = Arrays.copyOf(array, array.length);
+
         array[0] = 7;
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(copyOfArray));
