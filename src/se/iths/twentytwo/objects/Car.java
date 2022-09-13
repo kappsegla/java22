@@ -8,10 +8,18 @@ public class Car {
     private Color color;
     private int maxSpeed;
 
+
     public Car(int weight, Color color, int maxSpeed) {
         this.weight = weight;
         this.color = color;
         this.maxSpeed = maxSpeed;
+    }
+
+    //Copy constructor
+    public Car(Car car){
+        this.weight = car.weight;
+        this.color = car.color;
+        this.maxSpeed = car.maxSpeed;
     }
 
     public int getWeight() {
