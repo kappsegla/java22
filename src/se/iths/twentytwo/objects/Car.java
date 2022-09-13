@@ -3,7 +3,6 @@ package se.iths.twentytwo.objects;
 import java.awt.Color;
 
 public class Car {
-
     private int weight;
     private Color color;
     private int maxSpeed;

@@ -1,7 +1,6 @@
 package se.iths.twentytwo.shapes;
 
 
-
 public class ShapesDemo {
     public static void main(String[] args) {
 
@@ -10,6 +9,9 @@ public class ShapesDemo {
         Point point3 = new Point(point2);
 
         double distance = point1.distanceTo(point2);
+
+        distance = Point.distance(point1,point2);
+
 
         System.out.println(distance);
         System.out.println(point1.getX());
