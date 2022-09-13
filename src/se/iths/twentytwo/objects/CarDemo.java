@@ -11,16 +11,18 @@ public class CarDemo {
 
         System.out.println(i);
 
-        Car myCar = new Car(1700, 185, new Color(200,0,0));
+        Car myCar = new Car(1700, new Color(200,0,0),185);
 //        myCar.weight = 1700;
 //        myCar.maxSpeed = 185;
 //        myCar.color = new Color(100,100,100);
 
         System.out.println(myCar.maxSpeed());
 
-        if( Objects.nonNull(myCar.color) )
+
+
+        if( Objects.nonNull(myCar.getColor()) )
             //if( myCar.color != null)
-            System.out.println(myCar.color.getRed());
+            System.out.println(myCar.getColor().getRed());
 
 
     }
