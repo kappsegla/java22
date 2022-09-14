@@ -17,6 +17,11 @@ public class Cylinder extends Circle {
         return getArea() * height;
     }
 
+    @Override
+    public String toString() {
+        return "Cylinder is in tha house";
+    }
+
     public static void main(String[] args) {
         Cylinder cylinder = new Cylinder(2, 3);
 
@@ -45,12 +50,11 @@ public class Cylinder extends Circle {
         if (object instanceof Cylinder cylinder2) {
             System.out.println(cylinder2.getVolume());
         }
-        
+
     }
 
 
 }
-
 
 //public class Cylinder {
 //    private final Circle circle;
