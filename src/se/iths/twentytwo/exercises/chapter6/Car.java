@@ -32,4 +32,16 @@ public class Car {
         this.colour = colour;
     }
 
+    public Car() {
+        model = "Please give me a model, please";
+        //colour = new Color(0, 0, 0); //Creates one color object for each car
+        colour = Color.BLACK;  //This will give us the same black color object for all cars, less memory used
+        price = Integer.MAX_VALUE; //en dyr bil - hahaha!
+    }
+
+    public Car(String model, int price, Color colour) {
+        this.colour = colour;
+        this.price = price;
+        this.model = model;
+    }
 }
