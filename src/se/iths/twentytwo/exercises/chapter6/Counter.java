@@ -37,11 +37,5 @@ public class Counter {
         count.decrease();
         System.out.println(count.value());
         counter2.print();
-
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
