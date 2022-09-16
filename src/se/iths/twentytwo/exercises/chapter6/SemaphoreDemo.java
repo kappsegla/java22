@@ -2,7 +2,6 @@ package se.iths.twentytwo.exercises.chapter6;
 
 public class SemaphoreDemo {
     public static void main(String[] args) {
-
         Semaphore semaphore1 = Semaphore.requestSemaphore();
         Semaphore semaphore2 = Semaphore.requestSemaphore();
         Semaphore semaphore3 = Semaphore.requestSemaphore();
