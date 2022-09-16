@@ -11,4 +11,10 @@ public class Animal {
         System.out.println("animal's sound is " + sound);
     }
 
+    public Animal(int weight, int height, String sound) {
+        this.weight = weight;
+        this.height = height;
+        this.sound = sound;
+    }
+
 }
