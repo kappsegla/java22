@@ -1,7 +1,12 @@
 package se.iths.twentytwo.animals;
 
-public class Mammal {
+public abstract class Mammal {
 
-    public void talk(){  }
+    public String name;
 
+    public String getName(){
+        return name;
+    }
+
+    abstract void talk();
 }
