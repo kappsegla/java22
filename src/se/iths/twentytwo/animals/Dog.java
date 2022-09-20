@@ -5,4 +5,6 @@ public class Dog extends Mammal{
     public void talk() {
         System.out.println("Woff, woff!");
     }
+
+
 }

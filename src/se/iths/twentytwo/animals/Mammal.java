@@ -4,5 +4,4 @@ public class Mammal {
 
     public void talk(){  }
 
-
 }
