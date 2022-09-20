@@ -4,12 +4,15 @@ import se.iths.twentytwo.solid.lsp.ShapeDemo;
 
 import java.awt.*;
 
-public class Cat extends Mammal {
+public class Cat extends Mammal implements Pet{
 
     @Override
     public void talk() {
-        this.name = "Misse";
         System.out.println("Meow, meow!");
     }
 
+    @Override
+    public boolean isCute() {
+        return true;
+    }
 }

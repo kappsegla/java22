@@ -8,12 +8,13 @@ public class AnimalFarm {
         Cat cat = new Cat();
         Duck duck = new Duck();
         //Mammal mammal = new Mammal();
-       // Mammal mammal = duck;
+        Pet myPet = dog;
+        System.out.println(myPet.isCute());
+
 
         makeASound(dog);
         makeASound(cat);
         makeASound(duck);
-       // makeASound(mammal);
     }
 
     public static void makeASound(Mammal mammal){
