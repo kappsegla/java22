@@ -1,5 +1,8 @@
 package se.iths.twentytwo.animals;
 
+import java.io.Serializable;
+import java.util.List;
+
 public class Dog extends Mammal implements Pet {
     @Override
     public void talk() {
@@ -15,5 +18,4 @@ public class Dog extends Mammal implements Pet {
 
         return true;
     }
-    
 }

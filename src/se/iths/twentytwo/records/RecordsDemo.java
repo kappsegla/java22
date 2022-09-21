@@ -11,5 +11,12 @@ public class RecordsDemo {
         RPerson donaldAsRecord = new RPerson("Donald","Duck",88);
         System.out.println(donaldAsRecord);
         System.out.println(donaldAsRecord.firstName());
+
+        printPersonPretty(donaldAsRecord);
+    }
+
+    public static void printPersonPretty(RPerson person) {
+        System.out.println(person.getName());
+        System.out.println("-------------");
     }
 }

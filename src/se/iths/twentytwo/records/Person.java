@@ -3,7 +3,7 @@ package se.iths.twentytwo.records;
 import java.util.Objects;
 
 //Immutable - can not be changed after initialization
-public class Person {
+public final class Person {
     private final String firstName;
     private final String lastName;
     private final int age;
