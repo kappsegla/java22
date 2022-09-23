@@ -17,7 +17,7 @@ public abstract class Marine extends Vehicle {
         System.out.printf("Position is in easting %.6f", eastingGps);
         System.out.printf(" and in northing %.6f", northingGps);
     }
-    
+
  /*   public void go() {
         double lat = new Random().nextDouble();
         double lon = new Random().nextDouble();
