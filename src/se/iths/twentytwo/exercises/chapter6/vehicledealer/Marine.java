@@ -1,6 +1,7 @@
 package se.iths.twentytwo.exercises.chapter6.vehicledealer;
 
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 public abstract class Marine extends Vehicle {
@@ -28,7 +29,7 @@ public abstract class Marine extends Vehicle {
         System.out.printf("Longitude: %.6f\n", longitude);
     }*/
 
-    public Marine(int weight, int price) {
-        super(weight, price);
+    public Marine(int weight, BigDecimal price, Person owner) {
+        super(weight, price, owner);
     }
 }

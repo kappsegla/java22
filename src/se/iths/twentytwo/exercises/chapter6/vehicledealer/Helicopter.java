@@ -1,8 +1,10 @@
 package se.iths.twentytwo.exercises.chapter6.vehicledealer;
 
+import java.math.BigDecimal;
+
 public class Helicopter extends Airborne {
-    public Helicopter(int weight, int price) {
-        super(weight, price);
+    public Helicopter(int weight, BigDecimal price, Person owner) {
+        super(weight, price, owner);
     }
 
 }

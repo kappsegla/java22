@@ -1,9 +1,11 @@
 package se.iths.twentytwo.exercises.chapter6.vehicledealer;
 
+import java.math.BigDecimal;
+
 public abstract class Airborne extends Vehicle {
 
-    public Airborne(int weight, int price) {
-        super(weight, price);
+    public Airborne(int weight, BigDecimal price, Person owner) {
+        super(weight, price, owner);
     }
 
     private double altitude;
