@@ -1,9 +1,16 @@
 package se.iths.twentytwo.exercises.chapter6.vehicles;
 
-public class Vehicle {
+public abstract class Vehicle {
+    private String manufacturer;
+    private int productionYear;
 
-    public void goTo(String destination) {
-        System.out.println("Färdas till " + destination);
+
+    public Vehicle(String manufacturer, int productionYear) {
+        this.manufacturer = manufacturer;
+        this.productionYear = productionYear;
     }
+
+    abstract void goTo(String destination);
+
 
 }

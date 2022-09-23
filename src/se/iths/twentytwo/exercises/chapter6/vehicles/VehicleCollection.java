@@ -2,19 +2,19 @@ package se.iths.twentytwo.exercises.chapter6.vehicles;
 
 public class VehicleCollection {
     public static void main(String[] args) {
-        var firstCar = new Car();
-        var firstSailboat = new Sailboat();
-        var firstMotorboat = new Motorboat();
-        var firstBicycle = new Bicycle();
-        var firstBoat = new Boat();
-        var vehicle = new Vehicle();
+        var firstCar = new Car("Volvo", 2006);
+        var firstSailboat = new Sailboat("Gustav Vasa", 1627);
+        var firstMotorboat = new Motorboat("Yamarin", 2002);
+        var firstBicycle = new Bicycle("GT", 1999);
+        var firstBoat = new Boat("Buster", 2003);
+        //var vehicle = new Vehicle("JAS 39 Gripen", 2004);
 
-        vehicle.goTo("Fotö");
+        //vehicle.goTo("Fotö");
         firstBoat.goTo("Björkö");
         firstBicycle.goTo("Öckerö");
         firstCar.goTo("Rörö");
         firstMotorboat.goTo("Hyppeln");
-        firstSailboat.goTo("Ödby Ö");
+        firstSailboat.goTo("Stockholms skärgård");
 
 
     }
