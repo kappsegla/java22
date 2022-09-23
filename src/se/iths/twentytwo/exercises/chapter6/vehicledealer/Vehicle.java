@@ -36,4 +36,13 @@ public abstract class Vehicle {
     public void setOwner(Person owner) {
         this.owner = owner;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "weight=" + weight +
+                ", price=" + price +
+                ", owner=" + owner +
+                '}';
+    }
 }

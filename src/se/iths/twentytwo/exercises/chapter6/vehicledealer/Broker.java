@@ -21,5 +21,6 @@ public class Broker extends Person {
 
         System.out.println("Nu äger " + vehicle.getOwner().getName() + " fordonet och har " + vehicle.getOwner().getBankBalance() + " på kontot");
         System.out.println(seller.getName() + " har nu " + seller.getBankBalance() + " på kontot");
+        System.out.println("");
     }
 }

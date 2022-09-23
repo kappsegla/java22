@@ -46,4 +46,14 @@ public class Person {
     public void setBankBalance(BigDecimal bankBalance) {
         this.bankBalance = bankBalance;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", work='" + work + '\'' +
+                ", bankBalance=" + bankBalance +
+                '}';
+    }
 }
