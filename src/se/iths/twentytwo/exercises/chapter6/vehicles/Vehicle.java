@@ -1,7 +1,7 @@
 package se.iths.twentytwo.exercises.chapter6.vehicles;
 
 public abstract class Vehicle {
-    private String manufacturer;
+    protected String manufacturer;
     private int productionYear;
 
 
@@ -10,7 +10,7 @@ public abstract class Vehicle {
         this.productionYear = productionYear;
     }
 
-    abstract void goTo(String destination);
+    public abstract void goTo(String destination);
 
 
 }

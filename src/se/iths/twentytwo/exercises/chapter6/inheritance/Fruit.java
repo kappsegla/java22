@@ -1,5 +1,8 @@
 package se.iths.twentytwo.exercises.chapter6.inheritance;
 
+import se.iths.twentytwo.exercises.chapter6.vehicles.Boat;
+import se.iths.twentytwo.exercises.chapter6.vehicles.Vehicle;
+
 import java.util.ArrayList;
 
 public class Fruit {
