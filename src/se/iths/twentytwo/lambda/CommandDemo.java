@@ -17,13 +17,15 @@ public class CommandDemo {
         handleCommand(fourthCommand);
 
         MathCalculation mathCalculation = (number1,number2) -> number1 + number2;
-        
+
 
         calculateAndPrint(mathCalculation);
 
         calculateAndPrint((number1,number2) -> number1 * number2);
 
         calculateAndPrint(CommandDemo::divide);
+
+        extractFunctionalParameter();
     }
 
     public static int divide(int a, int b) {
@@ -37,6 +39,11 @@ public class CommandDemo {
 
     public static void calculateAndPrint(MathCalculation mathCalculation) {
         System.out.println(mathCalculation.calculate(2,3));
+    }
+
+    public static void extractFunctionalParameter(){
+        int i = 2;
+        System.out.println(i);
     }
 
 }
