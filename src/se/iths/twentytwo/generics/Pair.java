@@ -1,9 +1,6 @@
 package se.iths.twentytwo.generics;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Pair {
     public final String first;
