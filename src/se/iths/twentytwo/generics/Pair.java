@@ -11,8 +11,8 @@ public class Pair<T, V> {
         this.second = second;
     }
 
-    public static <T,V> Pair<T,V> of(T first, V second) {
-        return new Pair(first, second);
+    public static <U, W> Pair<U, W> of(U first, W second) {
+        return new Pair<>(first, second);
     }
 
     @Override

@@ -2,18 +2,20 @@ package se.iths.twentytwo.generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
 
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.add(123);
-        
-        
-        Pair<String, Integer> twoStrings = readTwoStrings();
-        
+
+
+
+        Pair<String, Double> twoStrings = readTwoStrings();
+
+        printAPair(twoStrings);
+
         System.out.println(twoStrings);
         System.out.println( twoStrings.first.length());
         System.out.println(twoStrings.second.intValue());
@@ -25,14 +27,18 @@ public class Demo {
         System.out.println(readTwoStringsAsRecord());
     }
 
-    public static Pair<String,Integer> readTwoStrings() {
+    public static void printAPair(Pair<?, ?> thePair){
+        System.out.println(thePair);
+    }
+
+    public static Pair<String,Double> readTwoStrings() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String stringOne = scanner.nextLine();
         System.out.print("Enter a second string: ");
         Integer stringTwo = scanner.nextInt();
 
-        return Pair.of(stringOne, stringTwo);
+        return Pair.of(stringOne, stringTwo.doubleValue());
     }
 
     public static String[] readTwoStringsAsArray() {
@@ -54,6 +60,8 @@ public class Demo {
 
         return new TwoValues(stringOne, stringTwo);
     }
+
+
 }
 
 record TwoValues(String first, String second) {
