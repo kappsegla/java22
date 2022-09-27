@@ -1,14 +1,23 @@
 package se.iths.twentytwo.generics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
-        Pair twoStrings = readTwoStrings();
 
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        arrayList.add(123);
+        
+        
+        Pair<String, Integer> twoStrings = readTwoStrings();
+        
         System.out.println(twoStrings);
+        System.out.println( twoStrings.first.length());
+        System.out.println(twoStrings.second.intValue());
+
 
         String[] twoStringsInArray = readTwoStringsAsArray();
         System.out.println(Arrays.toString(twoStringsInArray));
@@ -16,12 +25,12 @@ public class Demo {
         System.out.println(readTwoStringsAsRecord());
     }
 
-    public static Pair readTwoStrings() {
+    public static Pair<String,Integer> readTwoStrings() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String stringOne = scanner.nextLine();
         System.out.print("Enter a second string: ");
-        String stringTwo = scanner.nextLine();
+        Integer stringTwo = scanner.nextInt();
 
         return Pair.of(stringOne, stringTwo);
     }
@@ -49,3 +58,5 @@ public class Demo {
 
 record TwoValues(String first, String second) {
 }
+
+record StringAndInteger(String frist, Integer second){}

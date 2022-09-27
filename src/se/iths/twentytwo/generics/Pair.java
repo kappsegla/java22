@@ -2,16 +2,16 @@ package se.iths.twentytwo.generics;
 
 import java.util.Objects;
 
-public class Pair {
-    public final String first;
-    public final String second;
+public class Pair<T, V> {
+    public final T first;
+    public final V second;
 
-    private Pair(String first, String second) {
+    private Pair(T first, V second) {
         this.first = first;
         this.second = second;
     }
 
-    public static Pair of(String first, String second) {
+    public static <T,V> Pair<T,V> of(T first, V second) {
         return new Pair(first, second);
     }
 
