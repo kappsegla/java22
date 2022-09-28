@@ -1,7 +1,8 @@
 package se.iths.twentytwo.collections;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Collections;
+import java.util.List;
 
 public class Demo {
 
@@ -9,7 +10,7 @@ public class Demo {
 
         String[] strings = new String[10];
 
-        ArrayList<String> myList = new ArrayList<>();
+        List<String> myList = new ArrayList<>();
         myList.add("Text0");
         System.out.println(myList.size());
 
@@ -31,9 +32,14 @@ public class Demo {
 
         myList.removeIf(e -> e.equals("Text3"));
 
-        for (int i = 0; i < myList.size(); i++) {
-            System.out.println(myList.get(i));
-        }
+        printList(myList);
+        //printList(Collections.unmodifiableList(myList));
+      //  String[] strings1 = myList.toArray(new String[0]);
+      //  printList(List.of(strings1));
+
+        List<String> compass = List.of("North", "East","South","West");
+        
+        printList(compass);
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < 10; i++) {
@@ -41,26 +47,35 @@ public class Demo {
         }
 
         String theString = result.toString();
-       // doSomething(result);
-       // doSomething(theString);
+        // doSomething(result);
+        // doSomething(theString);
 
-        System.out.println("Enter Text3");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        if( input.equals("Text3"))
-            System.out.println("Same content");
-        
-        input = input.intern();
-        if( input == "Text3")
-            System.out.println("Same object");
+//        System.out.println("Enter Text3");
+//        Scanner scanner = new Scanner(System.in);
+//
+//        String input = scanner.nextLine();
+//        input = input.intern();
+//
+//        if (input.equals("Text3"))
+//            System.out.println("Same content");
+//
+//
+//        if (input == "Text3")
+//            System.out.println("Same object");
 
     }
 
-    public static void doSomething(CharSequence input){
+    public static void doSomething(CharSequence input) {
 
         System.out.println(input);
     }
 
+    public static void printList(List<String> arrayList){
+        //arrayList.add("HAha printList did this.");
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(arrayList.get(i));
+        }
+    }
 
 
 }
