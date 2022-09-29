@@ -4,6 +4,10 @@ import java.util.List;
 
 public abstract class Animal {
 
+    public Animal() {
+
+    }
+
     public abstract String getPetType();
 
     public static void main(String[] args) {
@@ -33,6 +37,11 @@ public abstract class Animal {
 }
 
 class Dog extends Animal {
+
+    public Dog() {
+        super();
+    }
+
     @Override
     public String getPetType() {
         return "Dog";
