@@ -8,6 +8,9 @@ public class ZooDemo {
 
         takeToVet(myDogPet);
         takeToVet(myHorsePet);
+
+        Ridable ridable = new MiniHorse();
+        ridable.ride();
     }
 
     public static void takeToVet(Pet pet) {
@@ -19,6 +22,10 @@ interface Pet {
     String getPetType();
 }
 
+interface Ridable {
+    void ride();
+}
+
 class Lizzard implements Pet {
 
     @Override
@@ -27,10 +34,15 @@ class Lizzard implements Pet {
     }
 }
 
-class MiniHorse implements Pet {
+class MiniHorse implements Pet, Ridable {
 
     @Override
     public String getPetType() {
         return "Mini Horse";
+    }
+
+    @Override
+    public void ride() {
+        System.out.println("Riding around my house on my mini horse");
     }
 }
