@@ -2,14 +2,12 @@ package se.iths.twentytwo.zoo;
 
 import java.util.List;
 
-public class Animal {
+public abstract class Animal {
 
-    public String getPetType() {
-        return "Normal animal";
-    }
+    public abstract String getPetType();
 
     public static void main(String[] args) {
-        Animal animal = new Animal();
+//        Animal animal = new Animal();
         Dog dog = new Dog();
         Animal myDog = new Dog();
         Animal myCat = new Cat();
