@@ -3,7 +3,7 @@ package se.iths.twentytwo.sos;
 public class TrafficAccident extends Emergency {
     @Override
     public void handle() {
-        System.out.println("Sen ambulance and police");
+        System.out.println("Send ambulance and police");
     }
 
     @Override
