@@ -44,6 +44,23 @@ public class Stack<E> {
     public boolean isEmpty() {
         return length == 0;
     }
+
+    public void print() {
+        var temp = head;
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.next;
+        }
+    }
+
+    //For reversed order to work, we need a double linked list
+    public void printReversed() {
+        var temp = tail;
+        while (temp != null) {
+            System.out.println(temp.value);
+            temp = temp.prev;
+        }
+    }
 }
 
 class Node<T> {
