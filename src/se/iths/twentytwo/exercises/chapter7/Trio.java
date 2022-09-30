@@ -20,8 +20,9 @@ public class Trio<T1 extends LandBased, T2 extends Marine, T3 extends Airborne> 
 
     public static void main(String[] args) {
         Person stina = new Person("Stina", 35, "bankrånare", new BigDecimal(99999999));
+        var car = new Car(2000, BigDecimal.valueOf(39999), stina);
         Trio<Car, Boat, Helicopter> trioOfVehicles = new Trio<>(
-                new Car(2000, BigDecimal.valueOf(39999), stina),
+                car,
                 new Boat(2000, BigDecimal.valueOf(39999), stina),
                 new Helicopter(2000, BigDecimal.valueOf(39999), stina));
     }
