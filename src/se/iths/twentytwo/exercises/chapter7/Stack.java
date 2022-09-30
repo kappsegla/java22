@@ -5,31 +5,33 @@ import java.util.LinkedList;
 public class Stack<E> {
 
     private Node<E> head;
+    private Node<E> tail;
 
     private int length;
 
     public void push(E value) {
-
-        length++;
-
         if (isEmpty()) {
             head = new Node<E>();
+            tail = head;
             head.value = value;
         } else {
             var tempNode = head;
             head = new Node<E>();
             head.value = value;
+            tempNode.prev = head;
             head.next = tempNode;
         }
+        length++;
     }
 
     public E pop() {
-
         if (isEmpty())
             return null;
         E tempValue = head.value;
         length--;
         head = head.next;
+        if (head != null)
+            head.prev = null;
 
         return tempValue;
 
@@ -44,8 +46,8 @@ public class Stack<E> {
     }
 }
 
-
 class Node<T> {
     public T value;
     public Node<T> next;
+    public Node<T> prev;
 }
