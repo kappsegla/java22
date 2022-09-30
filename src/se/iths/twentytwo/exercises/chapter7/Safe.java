@@ -1,5 +1,7 @@
 package se.iths.twentytwo.exercises.chapter7;
 
+import java.util.Optional;
+
 public class Safe<T> {
 
     private T thingToStore;
@@ -8,7 +10,10 @@ public class Safe<T> {
         this.thingToStore = thingToStore;
     }
 
-    public T retrieve() {
-        return thingToStore;
+    public Optional<T> retrieve() {
+        if (thingToStore == null)
+            return Optional.empty();
+        else
+            return Optional.of(thingToStore);
     }
 }
