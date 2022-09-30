@@ -1,8 +1,5 @@
 package se.iths.twentytwo.exercises.chapter7;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class StackDemo {
     public static void main(String[] args) {
         Stack<String> myStack = new Stack<>();
@@ -13,10 +10,8 @@ public class StackDemo {
         System.out.println(myStack.pop());  //Third string
         System.out.println(myStack.pop());  //Second string
         System.out.println(myStack.pop());  //First string
-
 //        myStack.print();
 //        myStack.printReversed();
-
 
         System.out.println(myStack.size()); //0
         System.out.println(myStack.isEmpty()); //true
