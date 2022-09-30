@@ -6,9 +6,9 @@ public class StackDemo {
         myStack.push("First string");
         myStack.push("Second string");
         myStack.push("Third string");
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
-        System.out.println(myStack.pop());
+        System.out.println(myStack.pop());  //Third string
+        System.out.println(myStack.pop());  //Second string
+        System.out.println(myStack.pop());  //First string
+        System.out.println(myStack.pop());  //?
     }
 }
