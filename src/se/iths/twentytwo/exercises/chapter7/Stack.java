@@ -4,13 +4,24 @@ import java.util.LinkedList;
 
 public class Stack<E> {
 
+    private Node<E> head;
+
     private final LinkedList<E> list = new LinkedList<>();
 
     private int length;
 
     public void push(E value) {
         list.addLast(value);
-        length++;
+
+        if (isEmpty()) {
+            head = new Node<E>();
+            head.value = value;
+        } else {
+            var tempNode = head;
+            head = new Node<E>();
+            head.value = value;
+            head.next = tempNode;
+        }
     }
 
     public E pop() {
@@ -26,6 +37,7 @@ public class Stack<E> {
         return length == 0;
     }
 }
+
 
 class Node<T> {
     public T value;
