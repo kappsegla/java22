@@ -6,12 +6,11 @@ public class Stack<E> {
 
     private Node<E> head;
 
-    private final LinkedList<E> list = new LinkedList<>();
-
     private int length;
 
     public void push(E value) {
-        list.addLast(value);
+
+        length++;
 
         if (isEmpty()) {
             head = new Node<E>();
@@ -25,8 +24,15 @@ public class Stack<E> {
     }
 
     public E pop() {
+
+        if (isEmpty())
+            return null;
+        E tempValue = head.value;
         length--;
-        return list.removeLast();
+        head = head.next;
+
+        return tempValue;
+
     }
 
     public int size() {

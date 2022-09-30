@@ -12,7 +12,7 @@ public class StackDemo {
         System.out.println(myStack.pop());  //First string
         System.out.println(myStack.size()); //0
         System.out.println(myStack.isEmpty()); //true
-        if (!myStack.isEmpty())
+       // if (!myStack.isEmpty())
             System.out.println(myStack.pop());  //Exception
     }
 }
