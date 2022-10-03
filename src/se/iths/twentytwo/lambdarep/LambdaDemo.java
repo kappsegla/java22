@@ -22,9 +22,18 @@ public class LambdaDemo {
 
         Runnable runnable = () -> System.out.println("Hej");
         runnable.run();
-        runnable.run();
+        testMethod(runnable);
+        testMethod(() -> System.out.println("Nu är det paus"));
+
 
     }
+
+    public static void testMethod(Runnable impl) {
+        impl.run();
+        impl.run();
+    }
+
+
 }
 
 
