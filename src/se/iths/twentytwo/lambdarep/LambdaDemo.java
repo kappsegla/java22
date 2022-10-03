@@ -1,6 +1,7 @@
 package se.iths.twentytwo.lambdarep;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -42,7 +43,10 @@ public class LambdaDemo {
 
         List<String> mutableListOfFlowers = new ArrayList<>(listOfFlowers);
 
-        mutableListOfFlowers.sort((object1, object2) -> object1.length() - object2.length());
+//        mutableListOfFlowers.sort((object1, object2) -> object1.length() - object2.length());
+        mutableListOfFlowers.sort(
+                Comparator.comparingInt(String::length)
+                        .thenComparing(Comparator.naturalOrder()));
 
         mutableListOfFlowers.forEach(System.out::println);
 
