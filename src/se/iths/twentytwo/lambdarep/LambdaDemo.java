@@ -1,5 +1,9 @@
 package se.iths.twentytwo.lambdarep;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiFunction;
+
 public class LambdaDemo {
 
     public static void main(String[] args) {
@@ -14,8 +18,11 @@ public class LambdaDemo {
 //            }
 //        };
         Calculatable calculatable = (a, b) -> a / b;
+        //Prefer using java standard functional interfaces
+        BiFunction<Integer, Integer, Integer> calc = (a, b) -> a / b;
 
         int result = calculatable.calculate(6, 3);
+        result = calc.apply(6, 3);
         System.out.println(result);
         System.out.println(calculatable.calculate(10, 2));
         System.out.println(calculatable.calculate(5, 2));
@@ -24,6 +31,20 @@ public class LambdaDemo {
         runnable.run();
         testMethod(runnable);
         testMethod(() -> System.out.println("Nu är det paus"));
+
+        List<String> listOfFlowers = List.of("Sunflower", "Rose", "Lily", "Dandelion");
+
+        for (String flower : listOfFlowers) {
+            System.out.println(flower);
+        }
+
+        listOfFlowers.forEach(flower -> System.out.println(flower));
+
+        List<String> mutableListOfFlowers = new ArrayList<>(listOfFlowers);
+
+        mutableListOfFlowers.sort((object1, object2) -> object1.length() - object2.length());
+
+        mutableListOfFlowers.forEach(System.out::println);
 
 
     }
@@ -44,8 +65,8 @@ interface Calculatable {
 
 class Add implements Calculatable {
     @Override
-    public int calculate(int a, int b) {
-        return a + b;
+    public int calculate(int tal1, int tal2) {
+        return tal1 + tal2;
     }
 }
 
