@@ -2,6 +2,7 @@ package se.iths.twentytwo.stream;
 
 import java.security.PublicKey;
 import java.time.LocalDateTime;
+import java.util.function.Consumer;
 
 public class Pure {
 
@@ -17,7 +18,7 @@ public class Pure {
         this.fieldValue = fieldValue;
     }
 
-    public int getAndSetFieldValue(int fieldValue){
+    public int getAndSetFieldValue(int fieldValue) {
         int temp = this.fieldValue;
         this.fieldValue = fieldValue;
         return temp;
@@ -25,19 +26,28 @@ public class Pure {
 
     public static void main(String[] args) {
         System.out.println(dayOfWeek());
+
+        String data = "Some random text";
+
+        higherOrderFunction(text -> System.out.println(text + data));
     }
 
-    public static int pureFunction(int a){
-        return  a * 2;
+    public static void higherOrderFunction(Consumer<String> consumer) {
+        consumer.accept("Handling this using an implementation handed to us as argument");
     }
 
-    public static int sideEffects(int a){
+
+    public static int pureFunction(int a) {
+        return a * 2;
+    }
+
+    public static int sideEffects(int a) {
         counter++;
         return a;
     }
 
     public static int nonPureFunction(int a) {
-        return (int) (a * (Math.random()*100));
+        return (int) (a * (Math.random() * 100));
     }
 
     public static int dayOfWeek() {
