@@ -1,6 +1,7 @@
 package se.iths.twentytwo.stream;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 public class StreamsAndExceptions {
@@ -17,16 +18,30 @@ public class StreamsAndExceptions {
         }
 
         //Sum of numbers
-        var sum = numbers.stream()
-                .map(wrap(Double::parseDouble))
-                .mapToDouble(Double::doubleValue)
-                //.map(wrap(Integer::parseInt))
-                //.mapToInt(Integer::intValue)
-                .sum();
-        System.out.println(sum);
+//        var sum = numbers.stream()
+//                .map(wrap(Double::parseDouble))
+//                .mapToDouble(Double::doubleValue)
+//                //.map(wrap(Integer::parseInt))
+//                //.mapToInt(Integer::intValue)
+//                .sum();
+//        System.out.println(sum);
 
         var sum2 = numbers.stream()
-                .mapToInt(Integer::parseInt)
+                .map(Either.lift(Integer::parseInt))
+                .filter(Either::isRight)
+                .map(Either::getRight)
+                .filter(Optional::isPresent)
+                .mapToInt(Optional::get)
+                .sum();
+
+        System.out.println(sum2);
+
+        var sum3 = numbers.stream()
+                .map(Either.lift(Integer::parseInt))
+                .filter(Either::isRight)
+                .map(Either::getRight)
+                .filter(Optional::isPresent)
+                .mapToInt(Optional::get)
                 .sum();
 
         System.out.println(sum2);
