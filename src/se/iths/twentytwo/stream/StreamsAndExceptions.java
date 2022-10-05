@@ -21,13 +21,15 @@ public class StreamsAndExceptions {
         }
 
         //Sum of numbers
-//        var sum = numbers.stream()
-//                .map(wrap(Double::parseDouble))
-//                .mapToDouble(Double::doubleValue)
-//                //.map(wrap(Integer::parseInt))
-//                //.mapToInt(Integer::intValue)
-//                .sum();
-//        System.out.println(sum);
+        var sum = numbers.stream()
+                .map(wrap(Double::parseDouble))
+                .map(i->i.orElse(0.0))
+                .mapToDouble(Double::doubleValue)
+//                .map(wrap(Integer::parseInt))
+//                .map(i->i.orElse(0))
+//                .mapToInt(Integer::intValue)
+                .sum();
+        System.out.println(sum);
 
         var sum2 = numbers.stream()
                 .map(Either.lift(Integer::parseInt))
@@ -49,18 +51,15 @@ public class StreamsAndExceptions {
         eithersPair.fst.forEach(System.out::println);
         System.out.println("------");
         eithersPair.snd.forEach(System.out::println);
-
-
     }
 
-
-    private static <T, R extends Number> Function<T, R> wrap(Function<T, R> mapper) {
+    private static <T,R> Function<T, Optional<R>> wrap(Function<T, R> mapper) {
         return n -> {
             try {
-                return mapper.apply(n);
+                return Optional.of(mapper.apply(n));
             } catch (NumberFormatException e) {
                 System.out.println("Error in data");
-                return null;
+                return Optional.empty();
             }
         };
     }
