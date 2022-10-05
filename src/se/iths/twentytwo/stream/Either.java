@@ -12,12 +12,12 @@ public class Either<L, R> {
         this.right = right;
     }
 
-    public static <L, R> Either<L, R> Left(L value) {
-        return new Either(value, null);
+    public static <L, R> Either<L, R> left(L value) {
+        return new Either<>(value, null);
     }
 
-    public static <L, R> Either<L, R> Right(R value) {
-        return new Either(null, value);
+    public static <L, R> Either<L, R> right(R value) {
+        return new Either<>(null, value);
     }
 
     public Optional<L> getLeft() {
@@ -61,9 +61,9 @@ public class Either<L, R> {
     public static <T, R> Function<T, Either<? extends Exception, R>> lift(CheckedFunction<T, R> function) {
         return t -> {
             try {
-                return Either.Right(function.apply(t));
+                return Either.right(function.apply(t));
             } catch (Exception ex) {
-                return Either.Left(ex);
+                return Either.left(ex);
             }
         };
     }
@@ -71,9 +71,9 @@ public class Either<L, R> {
     public static <T, R> Function<T, Either<Pair<? extends Exception, T>, R>> liftWithValue(CheckedFunction<T, R> function) {
         return t -> {
             try {
-                return Either.Right(function.apply(t));
+                return Either.right(function.apply(t));
             } catch (Exception ex) {
-                return Either.Left(Pair.of(ex, t));
+                return Either.left(Pair.of(ex, t));
             }
         };
     }
