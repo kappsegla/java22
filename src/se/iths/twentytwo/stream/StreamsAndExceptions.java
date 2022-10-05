@@ -3,6 +3,9 @@ package se.iths.twentytwo.stream;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 public class StreamsAndExceptions {
     public static void main(String[] args) {
@@ -34,24 +37,24 @@ public class StreamsAndExceptions {
                 .mapToInt(Optional::get)
                 .sum();
 
-        System.out.println(sum2);
+        // System.out.println(sum2);
 
-        var sum3 = numbers.stream()
+        var eithersPair = numbers.stream()
                 .map(Either.lift(Integer::parseInt))
-                .filter(Either::isRight)
-                .map(Either::getRight)
-                .filter(Optional::isPresent)
-                .mapToInt(Optional::get)
-                .sum();
+                .collect(teeing(
+                        filtering(Either::isRight, toList()),
+                        filtering(Either::isLeft, toList()),
+                        Pair::of));
 
-        System.out.println(sum2);
+        eithersPair.fst.forEach(System.out::println);
+        System.out.println("------");
+        eithersPair.snd.forEach(System.out::println);
 
 
     }
 
 
-
-    private static <T,R extends Number> Function<T, R> wrap(Function<T,R> mapper) {
+    private static <T, R extends Number> Function<T, R> wrap(Function<T, R> mapper) {
         return n -> {
             try {
                 return mapper.apply(n);
