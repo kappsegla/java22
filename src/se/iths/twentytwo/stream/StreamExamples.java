@@ -2,6 +2,7 @@ package se.iths.twentytwo.stream;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 import static java.util.function.Predicate.not;
@@ -58,7 +59,7 @@ public class StreamExamples {
 //                        .thenComparing(Cat::name))
 //                .toList();
 //        result.forEach(System.out::println);
-//        
+//
         catList.stream()
                 .map(Cat::name)
                 .map(String::toLowerCase)
@@ -77,7 +78,9 @@ public class StreamExamples {
 }
 
 record Cat(String name, int age, boolean female) {
+
     public int getNameLength() {
         return name.length();
     }
+
 }
