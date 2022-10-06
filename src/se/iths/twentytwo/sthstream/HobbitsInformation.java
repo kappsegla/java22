@@ -1,10 +1,7 @@
 package se.iths.twentytwo.sthstream;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static se.iths.twentytwo.sthstream.HType.FALLOHID;
@@ -43,9 +40,7 @@ public class HobbitsInformation {
         System.out.println(result);
         System.out.println(result2);
 
-        var hobbies = hobbits.stream()
-                .flatMap(hobbit -> hobbit.hobbies().stream())
-                .collect(Collectors.toSet());
+        var hobbies = getAllUniqeHobbyNames();
         //hobbies.forEach(System.out::println);
 
         var hobbies2 = hobbits.stream()
@@ -64,6 +59,12 @@ public class HobbitsInformation {
 //            case STOOR -> 3;
 //        };
 
+    }
+
+    private Set<String> getAllUniqeHobbyNames() {
+        return hobbits.stream()
+                .flatMap(hobbit -> hobbit.hobbies().stream())
+                .collect(Collectors.toSet());
     }
 
     //When returning Collection or Array, always return a valid object even if empty.
