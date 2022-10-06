@@ -20,9 +20,9 @@ public class HobbitsInformation {
 
     private void run() {
 
-        hobbits.add(new Hobbit("Bilbo", new Fallohide(), FALLOHID));
-        hobbits.add(new Hobbit("Frodo", new Fallohide(), FALLOHID));
-        hobbits.add(new Hobbit("Gollum", new Stoor(), STOOR));
+        hobbits.add(new Hobbit("Bilbo", new Fallohide(), FALLOHID, List.of("Leather crafting", "Acting")));
+        hobbits.add(new Hobbit("Frodo", new Fallohide(), FALLOHID, List.of("Leather crafting", "Kung fu")));
+        hobbits.add(new Hobbit("Gollum", new Stoor(), STOOR, List.of("Ring searching", "Fishing")));
 
         //hobbits.forEach(System.out::println);
         hobbits.stream()
@@ -42,6 +42,20 @@ public class HobbitsInformation {
 
         System.out.println(result);
         System.out.println(result2);
+
+        var hobbies = hobbits.stream()
+                .flatMap(hobbit -> hobbit.hobbies().stream())
+                .collect(Collectors.toSet());
+        //hobbies.forEach(System.out::println);
+
+        var hobbies2 = hobbits.stream()
+                .flatMap(hobbit -> hobbit.hobbies().stream())
+                .distinct()
+                .sorted()
+                .limit(3)
+                .toList();
+        hobbies2.forEach(System.out::println);
+
 
 //        HType hType = HARFOOT;
 //        int number switch (hType) {
