@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static se.iths.twentytwo.sthstream.HType.FALLOHID;
+import static se.iths.twentytwo.sthstream.HType.STOOR;
+
 public class HobbitsInformation {
 
     private final List<Hobbit> hobbits = new ArrayList<>();
@@ -15,9 +18,9 @@ public class HobbitsInformation {
 
     private void run() {
 
-        hobbits.add(new Hobbit("Bilbo", new Fallohide(), HType.FALLOHID));
-        hobbits.add(new Hobbit("Frodo", new Fallohide(), HType.FALLOHID));
-        hobbits.add(new Hobbit("Gollum", new Stoor(), HType.STOOR));
+        hobbits.add(new Hobbit("Bilbo", new Fallohide(), FALLOHID));
+        hobbits.add(new Hobbit("Frodo", new Fallohide(), FALLOHID));
+        hobbits.add(new Hobbit("Gollum", new Stoor(), STOOR));
 
         //hobbits.forEach(System.out::println);
         hobbits.stream()
@@ -37,6 +40,13 @@ public class HobbitsInformation {
 
         System.out.println(result);
         System.out.println(result2);
+
+//        HType hType = HARFOOT;
+//        int number = switch (hType) {
+//            case HARFOOT -> 1;
+//            case FALLOHID -> 2;
+//            case STOOR -> 3;
+//        };
 
     }
 
