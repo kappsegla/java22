@@ -57,7 +57,7 @@ record Hobbit(String name, HobbitType type, HType type2) {
 }
 
 enum HType {
-    HARFOOT, FALLOHID, STOOR
+    HARFOOT, FALLOHID, STOOR;
 }
 
 //Harfoot, Fallohid, Stoor
