@@ -1,8 +1,10 @@
 package se.iths.twentytwo.sthstream;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static se.iths.twentytwo.sthstream.HType.FALLOHID;
@@ -42,7 +44,7 @@ public class HobbitsInformation {
         System.out.println(result2);
 
 //        HType hType = HARFOOT;
-//        int number = switch (hType) {
+//        int number switch (hType) {
 //            case HARFOOT -> 1;
 //            case FALLOHID -> 2;
 //            case STOOR -> 3;
@@ -50,10 +52,23 @@ public class HobbitsInformation {
 
     }
 
+    //When returning Collection or Array, always return a valid object even if empty.
+    public List<Integer> luckyNumbers(String name) {
+        if (name.equals("Kalle"))
+            return List.of();
+        else
+            return List.of(4, 7);
+    }
 
+    //When returning a single object and sometimes we don't have anything to return, use Optional<T> as return type.
+    public Optional<Hobbit> visitor() {
+        if (LocalDateTime.now().getHour() < 12)
+            return Optional.empty();
+        return Optional.of(new Hobbit("Bilbo", new Fallohide(), FALLOHID, List.of()));
+    }
 }
 
-record Hobbit(String name, HobbitType type, HType type2) {
+record Hobbit(String name, HobbitType type, HType type2, List<String> hobbies) {
 }
 
 enum HType {
