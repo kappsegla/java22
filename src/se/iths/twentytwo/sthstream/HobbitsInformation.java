@@ -15,9 +15,9 @@ public class HobbitsInformation {
 
     private void run() {
 
-        hobbits.add(new Hobbit("Bilbo", new Fallohide()));
-        hobbits.add(new Hobbit("Frodo", new Fallohide()));
-        hobbits.add(new Hobbit("Gollum", new Stoor()));
+        hobbits.add(new Hobbit("Bilbo", new Fallohide(), HType.FALLOHID));
+        hobbits.add(new Hobbit("Frodo", new Fallohide(), HType.FALLOHID));
+        hobbits.add(new Hobbit("Gollum", new Stoor(), HType.STOOR));
 
         //hobbits.forEach(System.out::println);
         hobbits.stream()
@@ -33,18 +33,21 @@ public class HobbitsInformation {
                 .collect(Collectors.groupingBy(Hobbit::type, Collectors.toList()));
 
         var result2 = hobbits.stream()
-                .collect(Collectors.groupingBy(Hobbit::type, Collectors.counting()));
+                .collect(Collectors.groupingBy(Hobbit::type2, Collectors.counting()));
 
         System.out.println(result);
         System.out.println(result2);
-
 
     }
 
 
 }
 
-record Hobbit(String name, HobbitType type) {
+record Hobbit(String name, HobbitType type, HType type2) {
+}
+
+enum HType {
+    HARFOOT, FALLOHID, STOOR
 }
 
 //Harfoot, Fallohid, Stoor
