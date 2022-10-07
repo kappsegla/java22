@@ -10,14 +10,37 @@ public class Chapter8 {
 
     }
 
-    private static void tast14() {
+    private static void task15() {
+        var groupedByPopulation = getCountries().stream()
+                .sorted(Comparator.comparing(Country::countryName))
+                .collect(Collectors.groupingBy(country -> (int) country.population));
+
+        groupedByPopulation.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(Chapter8::printCountryGroups);
+    }
+
+
+    private static void getListByPopulationSorted(List<Country> countryList, int x) {
+        List<Country> countryListSorted = countryList.stream()
+                .filter(country -> Math.round(country.population) == x)
+                .sorted(Comparator.comparing(country -> country.countryName))
+                .toList();
+
+        System.out.println("Länder med " + x + " miljoner invånare:");
+        countryListSorted.forEach(country -> System.out.println(country.countryName));
+    }
+
+    private static void task14() {
         getCountries().stream()
-                .collect(Collectors.groupingBy(country -> country.countryName().charAt(0)))
-                .forEach((character, countryList) -> System.out.println(countryList.size() + ": " + character));
+                .collect(Collectors.groupingBy(c -> c.countryName().charAt(0), Collectors.counting()))
+                .forEach((character, count) -> System.out.println(character + " : " + count));
 
         Map<String, Long> collectByLetter = getCountries().stream()
                 .collect(Collectors.groupingBy(country -> country.countryName.substring(0, 1), Collectors.counting()));
         System.out.println(collectByLetter);
+
+// .collect(Collectors.groupingBy(c -> c.name().charAt(0), Collectors.counting()))
 
 
         //String concatenate
@@ -179,6 +202,11 @@ public class Chapter8 {
                 new Country("Grekland", "Aten", 11.18, 131957),
                 new Country("Luxemburg", "Luxemburg", 0.58, 2586),
                 new Country("Liechtenstein", "Vaduz", 0.038, 160));
+    }
+
+    private static void printCountryGroups(Map.Entry<Integer, List<Country>> entrySet) {
+        System.out.println("Länder med " + entrySet.getKey() + " miljoner invånader:");
+        entrySet.getValue().forEach(country -> System.out.println(" - " + country.countryName));
     }
 
     record Country(String countryName, String capital, double population, int area) {
