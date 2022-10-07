@@ -8,7 +8,23 @@ import java.util.stream.Collectors;
 public class Chapter8 {
     public static void main(String[] args) {
 
+    }
 
+    private static void task18() {
+        double sixSmallest = getCountries().stream()
+                .sorted(Comparator.comparing(Country::area))
+                .limit(6)
+                .mapToDouble(Country::population)
+                .sum();
+
+        double threeLargest = getCountries().stream()
+                .sorted(Comparator.comparing(Country::area).reversed())
+                .limit(3)
+                .mapToDouble(Country::population)
+                .sum();
+
+        System.out.println("The sum of the six smallest (by area) countries' populations is: " + sixSmallest);
+        System.out.println("The sum of the three greatest (by area) countries' pupulations is: " + threeLargest);
     }
 
     private static void task17() {
