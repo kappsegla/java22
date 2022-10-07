@@ -6,12 +6,14 @@ import java.util.List;
 public class Chapter8 {
     public static void main(String[] args) {
 
+
+    }
+
+    private static void task7() {
         getCountries().stream()
                 .filter(country -> (country.population() < 5))
                 .map(Country::countryName)
                 .forEach(System.out::println);
-
-
     }
 
     private static void task6() {
