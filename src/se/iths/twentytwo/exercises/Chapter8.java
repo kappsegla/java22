@@ -8,7 +8,17 @@ import java.util.stream.Collectors;
 public class Chapter8 {
     public static void main(String[] args) {
 
-        task16();
+
+    }
+
+    private static void task17() {
+        getCountries().stream()
+                .sorted(Comparator.comparing(Chapter8::getReverse).reversed())
+                .forEach(s -> System.out.println(s.countryName() + " " + getReverse(s)));
+    }
+
+    private static String getReverse(Country country) {
+        return new StringBuilder(country.capital).reverse().toString();
     }
 
     private static void task16() {
