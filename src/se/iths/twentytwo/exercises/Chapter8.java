@@ -9,6 +9,17 @@ public class Chapter8 {
 
     }
 
+    private static void task9() {
+        getCountries().stream()
+                //.filter(country -> !country.countryName().isEmpty() && !country.capital().isEmpty() && country.countryName().charAt(0) == country.capital().charAt(0))
+                .filter(country -> country.countryName().charAt(0) == country.capital().charAt(0))
+                .forEach(country -> System.out.println(country.countryName() + " " + country.capital()));
+//                .filter(country -> country.countryName.startsWith(String.valueOf(country.capital.charAt(0))))
+//                .forEach(country -> System.out.println(country.countryName() + ": " + country.capital()));
+//                .filter(country -> country.countryName.substring(0, 1).equals(country.capital.substring(0, 1)))
+//                .forEach(country -> System.out.println(country.countryName() + ": " + country.capital()));
+    }
+
     private static void task8Complicated() {
         for (int i = 10_000; i < 1_000_001; i = i * 10) {
             int finalI = i;
@@ -117,6 +128,6 @@ public class Chapter8 {
                 new Country("Liechtenstein", "Vaduz", 0.038, 160));
     }
 
-    record Country(String countryName, String capitol, double population, int area) {
+    record Country(String countryName, String capital, double population, int area) {
     }
 }
