@@ -9,6 +9,14 @@ public class Chapter8 {
 
     }
 
+    private static void task11() {
+        getCountries().stream()
+                .sorted(Comparator.comparingDouble(Country::population))
+                .limit(5)
+                .map(Country::countryName)
+                .forEach(System.out::println);
+    }
+
     private static void task10() {
         getCountries().stream()
                 .filter(c -> c.countryName().length() > c.capital().length())
