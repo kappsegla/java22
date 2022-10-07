@@ -4,7 +4,24 @@ import java.util.List;
 
 public class Chapter8 {
     public static void main(String[] args) {
-        getCountries().stream();
+        String s = getCountries().stream()
+                .map(Country::countryName)
+                .findFirst()
+                .orElse("");
+        System.out.println(s);
+
+        String s1 = getCountries().stream()
+                .skip(getCountries().size() - 1)
+                .map(Country::countryName)
+                .findFirst()
+                .orElse("");
+        System.out.println(s1);
+
+        String s2 = getCountries().stream()
+                .reduce((first, second) -> second)
+                .map(Country::countryName)
+                .orElse("");
+        System.out.println(s2);
 
 
     }
