@@ -8,6 +8,15 @@ import java.util.stream.Collectors;
 public class Chapter8 {
     public static void main(String[] args) {
 
+
+    }
+
+    private static void task19() {
+        double sum = getCountries().stream()
+                .filter(i -> i.countryName.length() == 7)
+                .mapToDouble(i -> i.population)
+                .sum();
+        System.out.println(sum);
     }
 
     private static void task18() {
