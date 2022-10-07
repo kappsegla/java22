@@ -6,7 +6,19 @@ import java.util.List;
 public class Chapter8 {
     public static void main(String[] args) {
 
+    }
 
+    private static void task8() {
+        populationOver(getCountries(), 10_000);
+        populationOver(getCountries(), 100_000);
+        populationOver(getCountries(), 1_000_000);
+    }
+
+    public static void populationOver(List<Country> countries, int x) {
+        long count = countries.stream()
+                .filter(country -> country.area > x)
+                .count();
+        System.out.println(count);
     }
 
     private static void task7() {
@@ -97,4 +109,3 @@ public class Chapter8 {
     record Country(String countryName, String capitol, double population, int area) {
     }
 }
-
