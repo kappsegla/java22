@@ -9,6 +9,13 @@ public class Chapter8 {
 
     }
 
+    private static void task10() {
+        getCountries().stream()
+                .filter(c -> c.countryName().length() > c.capital().length())
+                .map(Country::countryName)
+                .forEach(System.out::println);
+    }
+
     private static void task9() {
         getCountries().stream()
                 //.filter(country -> !country.countryName().isEmpty() && !country.capital().isEmpty() && country.countryName().charAt(0) == country.capital().charAt(0))
