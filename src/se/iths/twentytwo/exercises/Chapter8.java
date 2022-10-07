@@ -1,9 +1,50 @@
 package se.iths.twentytwo.exercises;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class Chapter8 {
     public static void main(String[] args) {
+
+
+    }
+
+    private static void task6() {
+        double averageArea = getCountries().stream()
+                .mapToInt(Country::area)
+                .average().orElse(0);
+        System.out.printf("Average area is: %.2f\n", averageArea);
+
+        long nBelowAverage = getCountries().stream()
+                .filter(country -> country.area() < averageArea)
+                .count();
+
+        System.out.println("Number of countries below average are: " + nBelowAverage);
+    }
+
+    private static void task5() {
+        double v = getCountries().stream()
+                .mapToDouble(Country::population)
+                .max()
+                .orElse(0.0);
+        System.out.println(v);
+    }
+
+    private static void task4() {
+        getCountries().stream()
+                .sorted(Comparator.comparingDouble(Country::population).reversed())
+                .map(Country::countryName)
+                .forEach(System.out::println);
+    }
+
+    private static void task3() {
+        getCountries().stream()
+                .sorted(Comparator.comparing(Country::countryName))
+                .map(Country::countryName)
+                .forEach(System.out::println);
+    }
+
+    private static void task2() {
         String s = getCountries().stream()
                 .map(Country::countryName)
                 .findFirst()
@@ -22,8 +63,6 @@ public class Chapter8 {
                 .map(Country::countryName)
                 .orElse("");
         System.out.println(s2);
-
-
     }
 
     private static List<Country> getCountries() {
