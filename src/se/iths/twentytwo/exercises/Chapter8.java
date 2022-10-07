@@ -8,7 +8,25 @@ import java.util.stream.Collectors;
 public class Chapter8 {
     public static void main(String[] args) {
 
+        task16();
     }
+
+    private static void task16() {
+        //        getCountries().forEach(country -> System.out.println(
+//                        country.countryName() + ", population: " + (int)(country.population()*1000_000)));
+
+        getCountries().stream()
+                .map(Statistics::of)
+                .sorted(Comparator.comparingDouble(Statistics::density))
+                .forEach(s -> System.out.println(s.countryName() + ", density: " + s.density()));
+    }
+
+    record Statistics(String countryName, double density) {
+        private static Statistics of(Country country) {
+            return new Statistics(country.countryName(), country.population() * 1000_000 / country.area());
+        }
+    }
+
 
     private static void task15() {
         var groupedByPopulation = getCountries().stream()
@@ -208,6 +226,7 @@ public class Chapter8 {
         System.out.println("Länder med " + entrySet.getKey() + " miljoner invånader:");
         entrySet.getValue().forEach(country -> System.out.println(" - " + country.countryName));
     }
+
 
     record Country(String countryName, String capital, double population, int area) {
     }
