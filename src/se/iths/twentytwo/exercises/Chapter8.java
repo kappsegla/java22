@@ -9,6 +9,15 @@ public class Chapter8 {
 
     }
 
+    private static void task13() {
+        getCountries().stream()
+                .filter(country -> country.area >= 500_000)
+                .sorted(Comparator.comparing(Country::countryName).reversed())
+                .limit(3)
+                .map(Country::countryName)
+                .forEach(System.out::println);
+    }
+
     private static void task12() {
         getCountries().stream()
                 .filter(country -> country.population > 7)
