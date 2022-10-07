@@ -2,23 +2,32 @@ package se.iths.twentytwo.exercises;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Chapter8 {
     public static void main(String[] args) {
 
+    }
+
+    private static void tast14() {
         getCountries().stream()
                 .collect(Collectors.groupingBy(country -> country.countryName().charAt(0)))
                 .forEach((character, countryList) -> System.out.println(countryList.size() + ": " + character));
 
+        Map<String, Long> collectByLetter = getCountries().stream()
+                .collect(Collectors.groupingBy(country -> country.countryName.substring(0, 1), Collectors.counting()));
+        System.out.println(collectByLetter);
+
+
         //String concatenate
         //You'll get a string result from + if one of the operands is a string.
-        String s = "" + (10 + 10) + " : ";
-        String s2 = 10 + 10 + " : ";
-        String intToString = 10 + "";
-        System.out.println(s);
+//        String s = "" + (10 + 10) + " : ";
+//        String s2 = 10 + 10 + " : ";
+//        String intToString = 10 + "";
+//        System.out.println(s);
     }
-    
+
 
     private static void task13() {
         getCountries().stream()
