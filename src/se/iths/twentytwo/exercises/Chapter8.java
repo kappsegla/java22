@@ -6,6 +6,11 @@ import java.util.List;
 public class Chapter8 {
     public static void main(String[] args) {
 
+        getCountries().stream()
+                .filter(country -> (country.population() < 5))
+                .map(Country::countryName)
+                .forEach(System.out::println);
+
 
     }
 
