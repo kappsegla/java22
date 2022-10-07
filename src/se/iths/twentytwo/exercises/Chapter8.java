@@ -6,6 +6,17 @@ import java.util.List;
 public class Chapter8 {
     public static void main(String[] args) {
 
+
+    }
+
+    private static void task8Complicated() {
+        for (int i = 10_000; i < 1_000_001; i = i * 10) {
+            int finalI = i;
+            long count2 = getCountries().stream()
+                    .filter(country -> country.area() > finalI)
+                    .count();
+            System.out.println(count2);
+        }
     }
 
     private static void task8() {
