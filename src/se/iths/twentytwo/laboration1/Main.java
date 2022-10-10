@@ -1,6 +1,7 @@
 package se.iths.twentytwo.laboration1;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.Scanner;
 
@@ -36,7 +37,14 @@ public class Main {
     }
 
     private static void minMax(Scanner scanner) {
+        int[] numbers = new int[MAX_NUM];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(scanner.nextLine());
+        }
+        var stat = Arrays.stream(numbers).summaryStatistics();
 
+        System.out.println("Min value: " + stat.getMin());
+        System.out.println("Max value: " + stat.getMax());
     }
 
     private static void upsideDown(Scanner scanner) {
