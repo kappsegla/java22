@@ -34,6 +34,7 @@ public class Main {
     }
 
     private static void stonePaperScissors(Scanner scanner) {
+        new StonePaperScissors().play(scanner);
     }
 
     private static void minMax(Scanner scanner) {
