@@ -1,7 +1,11 @@
 package se.iths.twentytwo.files;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.util.stream.Stream;
+
+import static java.util.function.Predicate.not;
 
 public class FileExample {
 
@@ -20,11 +24,16 @@ public class FileExample {
 
         System.out.println(Files.exists(filePath));
 
+        readFileAsStream(filePath);
 
         try {
             //Files.createFile(filePath);
             //Files.move(filePath, Path.of(homeFolder,"moved.txt"));
-            Files.writeString(filePath, "Hello World\n");//, StandardOpenOption.APPEND);
+            //Files.writeString(filePath, "Hello Worldåäö\n");//, StandardOpenOption.APPEND);
+
+            String fileContent = Files.readString(filePath);
+          //  var listOfLines = Files.readAllLines(filePath);
+          //  System.out.println(listOfLines.get(0));
         }
         catch( FileAlreadyExistsException e){
             System.out.println("File already exists: " + e.getMessage());
@@ -32,7 +41,13 @@ public class FileExample {
         catch (IOException e) {
             System.out.println(e.getClass().getName() + " " + e.getMessage());
         }
+    }
 
-
+    public static void readFileAsStream(Path filePath){
+        try(Stream<String> lines = Files.lines(filePath)){
+            lines.filter(s-> !s.startsWith("#")).forEach(System.out::println);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
