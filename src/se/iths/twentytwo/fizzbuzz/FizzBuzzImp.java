@@ -24,7 +24,7 @@ public class FizzBuzzImp {
         for (int i = 1; i < 101; i++) {
             strings.add(convertToFizzBuzzString(i));
         }
-        System.out.println(String.join(":", strings));
+        System.out.println(String.join(",", strings));
 
     }
 
