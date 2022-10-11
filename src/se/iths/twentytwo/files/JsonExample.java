@@ -3,6 +3,9 @@ package se.iths.twentytwo.files;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,13 @@ public class JsonExample {
 
         System.out.println(json);
         //Save json string to textfile
+        String homeFolder = System.getProperty("user.home");
 
+        try {
+            Files.writeString(Path.of(homeFolder, "json","cakes.json"), json);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
         //Read json string from file
