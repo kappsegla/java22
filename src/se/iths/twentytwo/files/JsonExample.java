@@ -21,6 +21,7 @@ public class JsonExample {
         String homeFolder = System.getProperty("user.home");
 
         try {
+            Files.createDirectory(Path.of(homeFolder, "json"));
             Files.writeString(Path.of(homeFolder, "json","cakes.json"), json);
         } catch (IOException e) {
             throw new RuntimeException(e);
