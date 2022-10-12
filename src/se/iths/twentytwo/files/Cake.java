@@ -30,7 +30,6 @@ public final class Cake {
                 "name=" + name + ", " +
                 "price=" + price + ']';
     }
-
     public int id() {
         return id;
     }
