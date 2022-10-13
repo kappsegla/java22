@@ -4,6 +4,8 @@ import se.iths.twentytwo.stream.Pair;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.regex.Pattern;
@@ -15,7 +17,6 @@ public class IndexStrings {
 
     public static final Pattern PATTERN_NOT_WANTED_CHARS = Pattern.compile("[.,;?!\t\r\n]");
 
-
     public static void main(String[] args) {
         var list = List.of(
                 "My sister is coming for the holidays.",
@@ -25,22 +26,31 @@ public class IndexStrings {
                 "My sister makes awesome fudge."
         );
 
-//Build index, no stopwords used in this example.
-//Should exclude common words like is, the, a, an....
-//Now it just removes words with less than 3 characters
+//        var indexMap = buildIndexMap(list);
+        var indexMap = buildIndexMapExcludingStopWords(list, Set.of("fudge", "sister"));
 
+        System.out.println(indexMap.entrySet());
+        System.out.println("Documents containing fudge: " + indexMap.get("fudge"));
 
-        var allWords =
-                IntStream.range(0, list.size())
-                        .mapToObj(createPairOfStringAndIndex(list, PATTERN_NOT_WANTED_CHARS))
-                        .map(splitStringIntoWords())
-                        .flatMap(getPairStreamFunction())
-                        .collect(Collectors.groupingBy(Pair::first,
-                                Collectors.mapping(Pair::second, Collectors.toSet())));
+    }
 
-        System.out.println(allWords.entrySet());
-        System.out.println(allWords.get("fudge"));
+    private static Map<String, Set<Integer>> buildIndexMap(List<String> list) {
+        return IntStream.range(0, list.size())
+                .mapToObj(createPairOfStringAndIndex(list, PATTERN_NOT_WANTED_CHARS))
+                .map(splitStringIntoWords())
+                .flatMap(getPairStreamFunction())
+                .collect(Collectors.groupingBy(Pair::first,
+                        Collectors.mapping(Pair::second, Collectors.toSet())));
+    }
 
+    private static Map<String, Set<Integer>> buildIndexMapExcludingStopWords(List<String> list, Set<String> stopWords) {
+        return IntStream.range(0, list.size())
+                .mapToObj(createPairOfStringAndIndex(list, PATTERN_NOT_WANTED_CHARS))
+                .map(splitStringIntoWords())
+                .flatMap(getPairStreamFunction())
+                .filter(o -> !stopWords.contains(o.fst))
+                .collect(Collectors.groupingBy(Pair::first,
+                        Collectors.mapping(Pair::second, Collectors.toSet())));
     }
 
     private static Function<Pair<String, Integer>, Pair<String[], Integer>> splitStringIntoWords() {
@@ -51,7 +61,7 @@ public class IndexStrings {
         return s -> {
             int i = s.snd;
             return Arrays.stream(s.fst)
-                    .filter(w -> w.length() > 3)
+                    .filter(w -> w.length() > 2)
                     .map(w -> Pair.of(w, i));
         };
     }
