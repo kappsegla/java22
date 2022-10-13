@@ -1,6 +1,6 @@
 package se.iths.twentytwo.stream;
 
-public class Pair<F,S> {
+public class Pair<F, S> {
     public final F fst;
     public final S snd;
 
@@ -9,8 +9,16 @@ public class Pair<F,S> {
         this.snd = snd;
     }
 
-    public static <F,S> Pair<F,S> of(F fst, S snd) {
-        return new Pair<>(fst,snd);
+    public static <F, S> Pair<F, S> of(F fst, S snd) {
+        return new Pair<>(fst, snd);
+    }
+
+    public F first() {
+        return fst;
+    }
+
+    public S second() {
+        return snd;
     }
 
     @Override
