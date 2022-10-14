@@ -44,8 +44,7 @@ public class RegularTasks2 {
 
         Pattern pattern10 = Pattern.compile("\\b\\w{6}\\b");
         System.out.println(regexHit(pattern10, TEXT));
-
-//        Pattern pattern11 = Pattern.compile("\\b\\w+[^ae]+|[^ae]+\\w+\\b");
+        
         Pattern pattern11 = Pattern.compile("\\b[b-df-z]+\\b");
         System.out.println(regexHit(pattern11, TEXT));
     }
