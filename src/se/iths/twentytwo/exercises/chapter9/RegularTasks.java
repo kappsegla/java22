@@ -36,7 +36,7 @@ public class RegularTasks {
         return matcher.find();
     }
 
-    private static void regexTester(String regex, String stringToBeTested) {
+    public static void regexTester(String regex, String stringToBeTested) {
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(stringToBeTested);
         int count = 0;

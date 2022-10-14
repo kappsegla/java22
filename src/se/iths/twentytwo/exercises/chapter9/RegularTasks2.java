@@ -11,9 +11,10 @@ public class RegularTasks2 {
         Pattern pattern = Pattern.compile("as|od", Pattern.CASE_INSENSITIVE);
 //      Pattern pattern2 = Pattern.compile("[ae][nds]", Pattern.CASE_INSENSITIVE);
         Pattern pattern2 = Pattern.compile("a[nds]|e[nds]", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile("\\b[dh]");
+        Pattern pattern4 = Pattern.compile("s\\b");
 
-
-        System.out.println(regexHit(pattern2, TEXT));
+        System.out.println(regexHit(pattern4, TEXT));
 
     }
 
