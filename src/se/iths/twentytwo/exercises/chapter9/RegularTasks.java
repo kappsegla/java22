@@ -12,6 +12,7 @@ public class RegularTasks {
 
         regexTester("k(at|an|on)", text);
         regexTester("a[a-zåäö]", text);
+        regexTester("[^t]t[^t]", text);
     }
 
     private static boolean regexHit(Pattern pattern, String stringToBeTested) {
