@@ -10,7 +10,8 @@ public class RegularTasks {
         Pattern pattern = Pattern.compile("kat", Pattern.CASE_INSENSITIVE);
         System.out.println("kat exists in string: " + regexHit(pattern, text));
 
-        regexTester("kat", text);
+        regexTester("k(at|an|on)", text);
+        regexTester("a[a-zåäö]", text);
     }
 
     private static boolean regexHit(Pattern pattern, String stringToBeTested) {
@@ -24,9 +25,8 @@ public class RegularTasks {
         int count = 0;
         while (matcher.find()) {
             count++;
-            System.out.println("Hit #" + count); //"hit".equals("found")?
-            System.out.println("Start index " + matcher.start());
-            System.out.println("End index " + matcher.end());
+            System.out.println(matcher.group());
         }
+        System.out.println("Hits: " + count);
     }
 }
