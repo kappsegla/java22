@@ -1,5 +1,6 @@
 package se.iths.twentytwo.exercises.chapter9;
 
+import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,8 +19,37 @@ public class RegularTasks2 {
         Pattern pattern7 = Pattern.compile("(\\b[a-z]+\\b).*\\1");
         Pattern pattern8 = Pattern.compile("([a-z])\\1{2}");  //([a-z])\1\1
 
-        System.out.println(regexHit(pattern8, TEXT));
+        //System.out.println(regexHit(pattern8, TEXT));
 
+        String result = TEXT.replace("l", "1");
+        result = result.replace("o", "0");
+
+        Pattern pattern9 = Pattern.compile("[lo]");
+        //result = TEXT.replaceAll("[lo]","");
+        Matcher matcher = pattern9.matcher(TEXT);
+        result = matcher.replaceAll((matchResult) -> {
+            if (matchResult.group().equals("l"))
+                return "1";
+            else if (matchResult.group().equals("o"))
+                return "0";
+            else
+                throw new RuntimeException("Something went wrong cause Java is dumb");
+        });
+
+        result = matcher.replaceAll(RegularTasks2::getMatchResultStringFunction);
+
+        result = matcher.replaceAll((matchResult) -> matchResult.group().equals("l") ? "1" : "0");
+
+        System.out.println(result);
+    }
+
+    private static String getMatchResultStringFunction(MatchResult matchResult) {
+        if (matchResult.group().equals("l"))
+            return "1";
+        else if (matchResult.group().equals("o"))
+            return "0";
+        else
+            throw new RuntimeException("Something went wrong cause Java is dumb");
     }
 
 
@@ -28,6 +58,7 @@ public class RegularTasks2 {
         return (int) matcher.results()
                 .peek(matchResult -> System.out.println(matchResult.group()))
                 .count();
+
 //
 //        int count = 0;
 //        while (matcher.find()) {
