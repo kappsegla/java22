@@ -60,12 +60,16 @@ public class StreamExamples {
 //                .toList();
 //        result.forEach(System.out::println);
 //
-        catList.stream()
+        catList.parallelStream()
+                .peek(c-> System.out.println(Thread.currentThread().getName()))
                 .map(Cat::name)
                 .map(String::toLowerCase)
                 .filter(name -> name.startsWith("l"))
                 .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
-                .forEach(System.out::println);
+                .forEach(catName-> {
+                    System.out.println(Thread.currentThread().getName());
+                    System.out.println(catName);
+                });
     }
 
     private static boolean lessThanFive(int value) {
