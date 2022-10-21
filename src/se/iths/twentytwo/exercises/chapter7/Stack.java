@@ -1,6 +1,8 @@
 package se.iths.twentytwo.exercises.chapter7;
 
-public class Stack<E> {
+import java.util.Iterator;
+
+public class Stack<E> implements Iterable<E> {
 
     private Node<E> head;
     private Node<E> tail;
@@ -57,6 +59,32 @@ public class Stack<E> {
         while (temp != null) {
             System.out.println(temp.value);
             temp = temp.prev;
+        }
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new StackIterator(this);
+    }
+
+    class StackIterator implements Iterator<E> {
+
+        private Node<E> current;
+
+        public StackIterator(Stack<E> stack) {
+            this.current = stack.head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+            E data = current.value;
+            current = current.next;
+            return data;
         }
     }
 }
