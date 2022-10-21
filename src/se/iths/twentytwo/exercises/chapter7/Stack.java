@@ -1,7 +1,5 @@
 package se.iths.twentytwo.exercises.chapter7;
 
-import java.util.LinkedList;
-
 public class Stack<E> {
 
     private Node<E> head;
