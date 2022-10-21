@@ -12,8 +12,6 @@ public class EnergyPrices {
     public static void main(String[] args) {
         prices = inputPrice();
         printAllLines(prices);
-
-
         printHours(prices);
     }
 
@@ -30,13 +28,19 @@ public class EnergyPrices {
         int max = maxValue(prices);
         for (int row = 0; row < ROW_COUNT; row++) {
             rowHeader(min, max, row);
-            for (int col = 0; col < prices.length; col++) {
-                if (aboveThreshold(prices[col], row, min, max))
-                    System.out.print(" X ");
-                else
-                    System.out.print("   ");
-            }
+            printLine(prices, row);
             System.out.println();
+        }
+    }
+
+    private static void printLine(int[] prices, int row) {
+        int min = minValue(prices);
+        int max = maxValue(prices);
+        for (int col = 0; col < prices.length; col++) {
+            if (aboveThreshold(prices[col], row, min, max))
+                System.out.print(" X ");
+            else
+                System.out.print("   ");
         }
     }
 
@@ -74,9 +78,5 @@ public class EnergyPrices {
             System.out.print(space.repeat(stringMaxValue - stringMinValue) + stringMinValue + "|");
         else
             System.out.print(space.repeat(stringMaxValue) + "|");
-
-
     }
-
-
 }
