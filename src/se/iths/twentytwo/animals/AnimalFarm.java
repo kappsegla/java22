@@ -1,11 +1,9 @@
 package se.iths.twentytwo.animals;
 
-import java.io.Serializable;
-
 public class AnimalFarm {
     public static void main(String[] args) {
         Dog dog = new Dog();
-        Duck duck = new Duck();
+        Horse horse = new Horse();
         Cat cat1 = new Cat();
         cat1.name = "Misse";
         Cat cat2 = new Cat();
@@ -28,12 +26,20 @@ public class AnimalFarm {
 
         makeASound(dog);
         makeASound(cat1);
-        makeASound(duck);
+        makeASound(horse);
     }
 
-    public static void makeASound(Mammal mammal){
+    public static void makeASound(Mammal mammal) {
         mammal.talk();
     }
 
+
+    public Mammal createMammal(MammalType mammalType) {
+        return switch (mammalType) {
+            case CAT -> new Cat();
+            case DOG -> new Dog();
+            case HORSE -> new Horse();
+        };
+    }
 
 }

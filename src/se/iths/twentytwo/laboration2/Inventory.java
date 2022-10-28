@@ -50,8 +50,23 @@ public class Inventory {
         System.out.println("Skriv in kategori");
         Category category = new Category(scanner.nextLine());
 
-        productList.add(new Product(productName, eanCode, price, category));
-        //Lite kod
+        ProductBuilder productBuilder = new ProductBuilder();
+        Product product = productBuilder
+                .setEanCode(eanCode)
+                .setProductName(productName)
+                .setPrice(price)
+                .setCategory(category)
+                .build();
+
+        new AProductBuilder().setEanCode(eanCode)
+                .setProductName(productName)
+                .setPrice(price)
+                .setCategory(category)
+                .createProduct();
+
+        productList.add(product);
+
+        //productList.add(new Product(productName, eanCode, price, category));
     }
 
     private Double parseInput(Scanner sc) {

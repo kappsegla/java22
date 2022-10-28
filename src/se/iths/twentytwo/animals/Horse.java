@@ -1,8 +1,8 @@
 package se.iths.twentytwo.animals;
 
-public class Duck extends Mammal{
+public class Horse extends Mammal {
     @Override
     public void talk() {
-        System.out.println("Quack, quack!");
+        System.out.println("Gnägg");
     }
 }
