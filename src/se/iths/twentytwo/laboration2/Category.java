@@ -1,9 +1,21 @@
 package se.iths.twentytwo.laboration2;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Category {
     private final String categoryName;
+
+    private static final Map<String, Category> categoryList = new HashMap<>();
+
+    private Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public static Category of(String categoryName) {
+        return categoryList.computeIfAbsent(categoryName, key -> new Category(key));
+    }
 
     public String getCategoryName() {
         return categoryName;
@@ -29,9 +41,5 @@ public class Category {
     @Override
     public int hashCode() {
         return categoryName != null ? categoryName.hashCode() : 0;
-    }
-
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
     }
 }

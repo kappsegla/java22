@@ -48,7 +48,7 @@ public class Inventory {
         System.out.println("Skriv in produktens pris");
         BigDecimal price = BigDecimal.valueOf(parseInput(scanner));
         System.out.println("Skriv in kategori");
-        Category category = new Category(scanner.nextLine());
+        Category category = Category.of(scanner.nextLine());
 
         ProductBuilder productBuilder = new ProductBuilder();
         Product product = productBuilder
@@ -58,11 +58,11 @@ public class Inventory {
                 .setCategory(category)
                 .build();
 
-        new AProductBuilder().setEanCode(eanCode)
-                .setProductName(productName)
-                .setPrice(price)
-                .setCategory(category)
-                .createProduct();
+//        new AProductBuilder().setEanCode(eanCode)
+//                .setProductName(productName)
+//                .setPrice(price)
+//                .setCategory(category)
+//                .createProduct();
 
         productList.add(product);
 

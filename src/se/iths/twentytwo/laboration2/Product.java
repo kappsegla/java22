@@ -15,7 +15,6 @@ public class Product {
         this.eanCode = Objects.requireNonNull(eanCode, "EanCode mustn't be null");
         this.price = price;
         this.category = category;
-
     }
 
     public String getProductName() {
